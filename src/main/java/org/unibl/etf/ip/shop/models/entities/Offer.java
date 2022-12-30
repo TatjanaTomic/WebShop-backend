@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -30,6 +31,7 @@ public class Offer {
     private Product product;
 
     @OneToMany(mappedBy = "offer")
+    @JsonIgnore
     private List<Purchase> purchases;
 
 }

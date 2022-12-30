@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,10 +23,12 @@ public class Category {
     @Column(name = "isDeleted", nullable = false)
     private Boolean isDeleted;
 
-    @OneToMany(mappedBy = "category")
-    private List<Attribute> attributes;
+    //@OneToMany(mappedBy = "category")
+    //@JsonIgnore
+    //private List<Attribute> attributes;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Product> products;
 
 }

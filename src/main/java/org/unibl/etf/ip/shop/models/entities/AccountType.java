@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class AccountType {
     private String name;
 
     @OneToMany(mappedBy = "accountType")
+    @JsonIgnore
     private List<Account> accounts;
 
 }

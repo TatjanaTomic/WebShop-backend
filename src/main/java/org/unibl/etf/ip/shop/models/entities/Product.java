@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -49,7 +50,8 @@ public class Product {
     @JoinColumn(name = "idLocation", referencedColumnName = "id")
     private Location location;
 
-    @OneToMany(mappedBy = "product")
-    private List<Value> values;
+    //@OneToMany(mappedBy = "product")
+    //@JsonIgnore
+    //private List<Value> values;
 
 }

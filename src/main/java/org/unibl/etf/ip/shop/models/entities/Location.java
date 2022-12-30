@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,6 +24,7 @@ public class Location {
     private Integer longitude;
 
     @OneToMany(mappedBy = "location")
+    @JsonIgnore
     private List<Product> products;
 
 }

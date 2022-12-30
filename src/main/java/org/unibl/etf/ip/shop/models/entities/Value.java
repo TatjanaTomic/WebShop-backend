@@ -27,12 +27,12 @@ public class Value {
     @Column(name = "value", nullable = false)
     private String value;
 
-    @ManyToOne
-    @JoinColumn(name = "idProduct", referencedColumnName = "id", nullable = false)
-    private Product product;
+    //@ManyToOne
+    //@JoinColumn(name = "idProduct", referencedColumnName = "id", nullable = false)
+    //private Product product;
 
-    @ManyToOne
-    @JoinColumns({@JoinColumn(name = "idAttribute", referencedColumnName = "id", nullable = false), @JoinColumn(name = "idCategory", referencedColumnName = "idCategory", nullable = false)})
-    private Attribute attribute;
+    //@ManyToOne
+    //@JoinColumns({@JoinColumn(name = "idAttribute", referencedColumnName = "id", nullable = false), @JoinColumn(name = "idCategory", referencedColumnName = "idCategory", nullable = false)})
+    //private Attribute attribute;
 
 }
