@@ -1,10 +1,8 @@
 package org.unibl.etf.ip.shop.models.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
 
 @Data
 @Entity
@@ -18,7 +16,7 @@ public class Attribute {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "idCategory", nullable = false, insertable=false, updatable=false)
+    @Column(name = "id_category", nullable = false, insertable=false, updatable=false)
     private Integer idCategory;
 
     @Basic
@@ -26,7 +24,7 @@ public class Attribute {
     private String name;
 
     //@ManyToOne
-    //@JoinColumn(name = "idCategory", referencedColumnName = "id", nullable = false)
+    //@JoinColumn(name = "id_category", referencedColumnName = "id", nullable = false)
     //private Category category;
 
     //@OneToMany(mappedBy = "attribute")

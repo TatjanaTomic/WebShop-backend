@@ -16,8 +16,8 @@ public class Image {
     @Column(name = "url", nullable = false, length = 500)
     private String url;
 
-    @ManyToOne
-    @JoinColumn(name = "idProduct", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_product", referencedColumnName = "id", nullable = false)
     private Product product;
 
 }

@@ -19,7 +19,7 @@ public class Log {
     private String content;
 
     @Basic
-    @Column(name = "dateTime", nullable = false)
+    @Column(name = "date_time", nullable = false)
     private Timestamp dateTime;
 
 }

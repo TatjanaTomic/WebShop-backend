@@ -10,17 +10,17 @@ import lombok.Data;
 public class Value {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "idProduct", nullable = false)
+    @Column(name = "id_product", nullable = false)
     private Integer idProduct;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "idAttribute", nullable = false)
+    @Column(name = "id_attribute", nullable = false)
     private Integer idAttribute;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "idCategory", nullable = false)
+    @Column(name = "id_category", nullable = false)
     private Integer idCategory;
 
     @Basic
@@ -28,11 +28,11 @@ public class Value {
     private String value;
 
     //@ManyToOne
-    //@JoinColumn(name = "idProduct", referencedColumnName = "id", nullable = false)
+    //@JoinColumn(name = "id_product", referencedColumnName = "id", nullable = false)
     //private Product product;
 
     //@ManyToOne
-    //@JoinColumns({@JoinColumn(name = "idAttribute", referencedColumnName = "id", nullable = false), @JoinColumn(name = "idCategory", referencedColumnName = "idCategory", nullable = false)})
+    //@JoinColumns({@JoinColumn(name = "id_attribute", referencedColumnName = "id", nullable = false), @JoinColumn(name = "id_category", referencedColumnName = "id_category", nullable = false)})
     //private Attribute attribute;
 
 }

@@ -17,11 +17,11 @@ public class Message {
     private String content;
 
     @Basic
-    @Column(name = "isRead", nullable = false)
+    @Column(name = "is_read", nullable = false)
     private Boolean isRead;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
     private UserAccount userAccount;
 
 }

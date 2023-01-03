@@ -15,11 +15,11 @@ public class UserAccount {
     private Integer id;
 
     @Basic
-    @Column(name = "firstName", nullable = false, length = 45)
+    @Column(name = "first_name", nullable = false, length = 45)
     private String firstName;
 
     @Basic
-    @Column(name = "lastName", nullable = false, length = 45)
+    @Column(name = "last_name", nullable = false, length = 45)
     private String lastName;
 
     @Basic
@@ -47,11 +47,11 @@ public class UserAccount {
     private String pin;
 
     @Basic
-    @Column(name = "isActivated", nullable = false)
+    @Column(name = "is_activated", nullable = false)
     private Boolean isActivated;
 
     @Basic
-    @Column(name = "isDeleted", nullable = false)
+    @Column(name = "is_deleted", nullable = false)
     private Boolean isDeleted;
 
     @OneToMany(mappedBy = "userAccount")

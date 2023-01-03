@@ -1,6 +1,5 @@
 package org.unibl.etf.ip.shop.models.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -29,7 +28,7 @@ public class Product {
     private BigDecimal price;
 
     @Basic
-    @Column(name = "isNew", nullable = false)
+    @Column(name = "is_new", nullable = false)
     private Boolean isNew;
 
     @Basic
@@ -42,12 +41,12 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Offer> offers;
 
-    @ManyToOne
-    @JoinColumn(name = "idCategory", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_category", referencedColumnName = "id", nullable = false)
     private Category category;
 
-    @ManyToOne
-    @JoinColumn(name = "idLocation", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_location", referencedColumnName = "id")
     private Location location;
 
     //@OneToMany(mappedBy = "product")

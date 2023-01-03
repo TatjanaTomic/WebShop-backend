@@ -16,12 +16,12 @@ public class Comment {
     @Column(name = "content", nullable = false, length = -1)
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
     private UserAccount userAccount;
 
-    @ManyToOne
-    @JoinColumn(name = "idOffer", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_offer", referencedColumnName = "id", nullable = false)
     private Offer offer;
 
 }

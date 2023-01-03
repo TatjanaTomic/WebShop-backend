@@ -15,23 +15,23 @@ public class Purchase {
     private Integer id;
 
     @Basic
-    @Column(name = "dateTime", nullable = false)
+    @Column(name = "date_time", nullable = false)
     private Timestamp dateTime;
 
     @Basic
-    @Column(name = "cardNumber", length = 45)
+    @Column(name = "card_number", length = 45)
     private String cardNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "idOffer", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_offer", referencedColumnName = "id", nullable = false)
     private Offer offer;
 
-    @ManyToOne
-    @JoinColumn(name = "idPaymentType", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_payment_type", referencedColumnName = "id", nullable = false)
     private PaymentType paymentType;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
     private UserAccount userAccount;
 
 }

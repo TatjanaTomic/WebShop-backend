@@ -15,7 +15,7 @@ public class AttributePK implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "idCategory", nullable = false)
+    @Column(name = "id_category", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCategory;

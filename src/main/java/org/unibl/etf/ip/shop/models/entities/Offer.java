@@ -16,18 +16,18 @@ public class Offer {
     private Integer id;
 
     @Basic
-    @Column(name = "isActive", nullable = false)
+    @Column(name = "is_active", nullable = false)
     private Boolean isActive;
 
     @OneToMany(mappedBy = "offer")
     private List<Comment> comments;
 
-    @ManyToOne
-    @JoinColumn(name = "idUser", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
     private UserAccount userAccount;
 
-    @ManyToOne
-    @JoinColumn(name = "idProduct", referencedColumnName = "id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_product", referencedColumnName = "id", nullable = false)
     private Product product;
 
     @OneToMany(mappedBy = "offer")

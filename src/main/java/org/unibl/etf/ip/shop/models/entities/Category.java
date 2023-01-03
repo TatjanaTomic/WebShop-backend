@@ -20,7 +20,7 @@ public class Category {
     private String name;
 
     @Basic
-    @Column(name = "isDeleted", nullable = false)
+    @Column(name = "is_deleted", nullable = false)
     private Boolean isDeleted;
 
     //@OneToMany(mappedBy = "category")

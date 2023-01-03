@@ -10,17 +10,17 @@ import java.io.Serializable;
 
 @Data
 public class ValuePK implements Serializable {
-    @Column(name = "idProduct", nullable = false)
+    @Column(name = "id_product", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProduct;
 
-    @Column(name = "idAttribute", nullable = false)
+    @Column(name = "id_attribute", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAttribute;
 
-    @Column(name = "idCategory", nullable = false)
+    @Column(name = "id_category", nullable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCategory;
