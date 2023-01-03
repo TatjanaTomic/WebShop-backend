@@ -1,0 +1,34 @@
+package org.unibl.etf.ip.shop.services.impl;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+import org.unibl.etf.ip.shop.exceptions.NotFoundException;
+import org.unibl.etf.ip.shop.models.UserAccountDTO;
+import org.unibl.etf.ip.shop.models.UserAccountSingleDTO;
+import org.unibl.etf.ip.shop.repositories.UserAccountRepository;
+import org.unibl.etf.ip.shop.services.UserAccountServiceInterface;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class UserAccountService implements UserAccountServiceInterface {
+
+    private final ModelMapper modelMapper;
+    private final UserAccountRepository userAccountRepository;
+
+    public UserAccountService(UserAccountRepository userAccountRepository, ModelMapper modelMapper) {
+        this.userAccountRepository = userAccountRepository;
+        this.modelMapper = modelMapper;
+    }
+
+    @Override
+    public List<UserAccountDTO> findAll() {
+        return userAccountRepository.findAll().stream().map(l->modelMapper.map(l, UserAccountDTO.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public UserAccountSingleDTO findById(Integer id) throws NotFoundException {
+        return modelMapper.map(userAccountRepository.findById(id).orElseThrow(NotFoundException::new), UserAccountSingleDTO.class);
+    }
+}
