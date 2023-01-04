@@ -30,4 +30,9 @@ public class PurchaseService implements PurchaseServiceInterface {
     public PurchaseDTO findById(Integer id) throws NotFoundException {
         return modelMapper.map(repository.findById(id).orElseThrow(NotFoundException::new), PurchaseDTO.class);
     }
+
+    @Override
+    public List<PurchaseDTO> getAllPurchasesByUserId(Integer id) {
+        return repository.getAllByUserAccount_Id(id).stream().map(a -> modelMapper.map(a, PurchaseDTO.class)).collect(Collectors.toList());
+    }
 }

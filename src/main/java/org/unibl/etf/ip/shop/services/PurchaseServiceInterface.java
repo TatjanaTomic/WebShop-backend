@@ -9,4 +9,6 @@ public interface PurchaseServiceInterface {
 
     List<PurchaseDTO> findAll();
     PurchaseDTO findById(Integer id) throws NotFoundException;
+
+    List<PurchaseDTO> getAllPurchasesByUserId(Integer id);
 }
