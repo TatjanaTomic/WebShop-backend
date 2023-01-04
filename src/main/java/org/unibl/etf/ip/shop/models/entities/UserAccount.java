@@ -2,13 +2,14 @@ package org.unibl.etf.ip.shop.models.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.unibl.etf.ip.shop.base.BaseEntity;
 
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "user_account")
-public class UserAccount {
+public class UserAccount implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)

@@ -2,6 +2,7 @@ package org.unibl.etf.ip.shop.models.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.unibl.etf.ip.shop.base.BaseEntity;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)

@@ -3,13 +3,14 @@ package org.unibl.etf.ip.shop.models.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.unibl.etf.ip.shop.base.BaseEntity;
 
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "offer")
-public class Offer {
+public class Offer implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)

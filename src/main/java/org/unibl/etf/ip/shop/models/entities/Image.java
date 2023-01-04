@@ -2,11 +2,12 @@ package org.unibl.etf.ip.shop.models.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.unibl.etf.ip.shop.base.BaseEntity;
 
 @Data
 @Entity
 @Table(name = "image")
-public class Image {
+public class Image implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)

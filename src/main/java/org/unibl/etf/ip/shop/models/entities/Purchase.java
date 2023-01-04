@@ -2,13 +2,14 @@ package org.unibl.etf.ip.shop.models.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.unibl.etf.ip.shop.base.BaseEntity;
 
 import java.sql.Timestamp;
 
 @Data
 @Entity
 @Table(name = "purchase")
-public class Purchase {
+public class Purchase implements BaseEntity<Integer> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
