@@ -9,5 +9,5 @@ import java.util.List;
 @Data
 public class UserAccountSingleDTO extends UserAccountDTO {
 
-    private List <PurchaseDTO> purchases;
+    private List<PurchaseDTO> purchases;
 }

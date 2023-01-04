@@ -15,20 +15,20 @@ import java.util.stream.Collectors;
 public class UserAccountService implements UserAccountServiceInterface {
 
     private final ModelMapper modelMapper;
-    private final UserAccountRepository userAccountRepository;
+    private final UserAccountRepository repository;
 
     public UserAccountService(UserAccountRepository userAccountRepository, ModelMapper modelMapper) {
-        this.userAccountRepository = userAccountRepository;
+        this.repository = userAccountRepository;
         this.modelMapper = modelMapper;
     }
 
     @Override
     public List<UserAccountDTO> findAll() {
-        return userAccountRepository.findAll().stream().map(l->modelMapper.map(l, UserAccountDTO.class)).collect(Collectors.toList());
+        return repository.findAll().stream().map(l -> modelMapper.map(l, UserAccountDTO.class)).collect(Collectors.toList());
     }
 
     @Override
     public UserAccountSingleDTO findById(Integer id) throws NotFoundException {
-        return modelMapper.map(userAccountRepository.findById(id).orElseThrow(NotFoundException::new), UserAccountSingleDTO.class);
+        return modelMapper.map(repository.findById(id).orElseThrow(NotFoundException::new), UserAccountSingleDTO.class);
     }
 }
