@@ -1,11 +1,10 @@
 package org.unibl.etf.ip.shop.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
 import org.unibl.etf.ip.shop.models.PurchaseDTO;
+import org.unibl.etf.ip.shop.models.PurchaseRequest;
 import org.unibl.etf.ip.shop.services.PurchaseServiceInterface;
 
 import java.util.List;
@@ -28,5 +27,21 @@ public class PurchaseController {
     @GetMapping("/{id}")
     public PurchaseDTO findById(@PathVariable Integer id) throws NotFoundException {
         return service.findById(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public PurchaseDTO insert(@RequestBody PurchaseRequest purchaseRequest) throws NotFoundException {
+        return service.insert(purchaseRequest);
+    }
+
+    @PutMapping("/{id}")
+    public PurchaseDTO update(@PathVariable Integer id, @RequestBody PurchaseRequest purchaseRequest) throws NotFoundException {
+        return service.update(id, purchaseRequest);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        service.delete(id);
     }
 }
