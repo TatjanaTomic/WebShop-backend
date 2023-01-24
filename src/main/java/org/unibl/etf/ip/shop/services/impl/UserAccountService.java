@@ -3,16 +3,16 @@ package org.unibl.etf.ip.shop.services.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
-import org.unibl.etf.ip.shop.models.UserAccountDTO;
-import org.unibl.etf.ip.shop.models.UserAccountSingleDTO;
+import org.unibl.etf.ip.shop.models.dtos.UserAccountDTO;
+import org.unibl.etf.ip.shop.models.dtos.UserAccountSingleDTO;
 import org.unibl.etf.ip.shop.repositories.UserAccountRepository;
-import org.unibl.etf.ip.shop.services.UserAccountServiceInterface;
+import org.unibl.etf.ip.shop.services.IUserAccountService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserAccountService implements UserAccountServiceInterface {
+public class UserAccountService implements IUserAccountService {
 
     private final ModelMapper modelMapper;
     private final UserAccountRepository repository;

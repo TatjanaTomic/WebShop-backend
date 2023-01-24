@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
-import org.unibl.etf.ip.shop.models.PurchaseDTO;
-import org.unibl.etf.ip.shop.models.UserAccountDTO;
-import org.unibl.etf.ip.shop.models.UserAccountSingleDTO;
-import org.unibl.etf.ip.shop.services.PurchaseServiceInterface;
-import org.unibl.etf.ip.shop.services.UserAccountServiceInterface;
+import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
+import org.unibl.etf.ip.shop.models.dtos.UserAccountDTO;
+import org.unibl.etf.ip.shop.models.dtos.UserAccountSingleDTO;
+import org.unibl.etf.ip.shop.services.IPurchaseService;
+import org.unibl.etf.ip.shop.services.IUserAccountService;
 
 import java.util.List;
 
@@ -17,10 +17,10 @@ import java.util.List;
 @RequestMapping("/user-accounts")
 public class UserAccountController {
 
-    private final UserAccountServiceInterface userAccountService;
-    private final PurchaseServiceInterface purchaseService;
+    private final IUserAccountService userAccountService;
+    private final IPurchaseService purchaseService;
 
-    public UserAccountController(UserAccountServiceInterface service, PurchaseServiceInterface purchaseService) {
+    public UserAccountController(IUserAccountService service, IPurchaseService purchaseService) {
         this.userAccountService = service;
         this.purchaseService = purchaseService;
     }

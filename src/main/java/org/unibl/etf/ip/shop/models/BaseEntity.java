@@ -1,4 +1,4 @@
-package org.unibl.etf.ip.shop.base;
+package org.unibl.etf.ip.shop.models;
 
 import java.io.Serializable;
 

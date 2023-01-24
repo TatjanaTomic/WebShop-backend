@@ -3,7 +3,7 @@ package org.unibl.etf.ip.shop.models.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.unibl.etf.ip.shop.base.BaseEntity;
+import org.unibl.etf.ip.shop.models.BaseEntity;
 
 import java.util.List;
 

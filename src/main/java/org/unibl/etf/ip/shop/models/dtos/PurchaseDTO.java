@@ -1,4 +1,4 @@
-package org.unibl.etf.ip.shop.models;
+package org.unibl.etf.ip.shop.models.dtos;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package org.unibl.etf.ip.shop.base;
+package org.unibl.etf.ip.shop.services;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
+import org.unibl.etf.ip.shop.models.BaseEntity;
+import org.unibl.etf.ip.shop.services.CrudService;
 
 import java.io.Serializable;
 import java.util.List;

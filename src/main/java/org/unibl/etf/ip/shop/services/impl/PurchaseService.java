@@ -6,18 +6,18 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
-import org.unibl.etf.ip.shop.models.PurchaseDTO;
-import org.unibl.etf.ip.shop.models.PurchaseRequest;
+import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
+import org.unibl.etf.ip.shop.models.requests.PurchaseRequest;
 import org.unibl.etf.ip.shop.models.entities.Purchase;
 import org.unibl.etf.ip.shop.repositories.PurchaseRepository;
-import org.unibl.etf.ip.shop.services.PurchaseServiceInterface;
+import org.unibl.etf.ip.shop.services.IPurchaseService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @Transactional //sve metode u ovoj klasi su transakcije, ako se prekine izvrsavanje metode, izmjene ce biti rollback-ovane
-public class PurchaseService implements PurchaseServiceInterface {
+public class PurchaseService implements IPurchaseService {
 
     private final ModelMapper modelMapper;
     private final PurchaseRepository repository;

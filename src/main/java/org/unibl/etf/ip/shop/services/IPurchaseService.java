@@ -1,12 +1,12 @@
 package org.unibl.etf.ip.shop.services;
 
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
-import org.unibl.etf.ip.shop.models.PurchaseDTO;
-import org.unibl.etf.ip.shop.models.PurchaseRequest;
+import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
+import org.unibl.etf.ip.shop.models.requests.PurchaseRequest;
 
 import java.util.List;
 
-public interface PurchaseServiceInterface {
+public interface IPurchaseService {
 
     List<PurchaseDTO> findAll();
     PurchaseDTO findById(Integer id) throws NotFoundException;

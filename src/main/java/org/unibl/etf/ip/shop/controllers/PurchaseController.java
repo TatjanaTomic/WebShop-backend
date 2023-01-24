@@ -3,9 +3,9 @@ package org.unibl.etf.ip.shop.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
-import org.unibl.etf.ip.shop.models.PurchaseDTO;
-import org.unibl.etf.ip.shop.models.PurchaseRequest;
-import org.unibl.etf.ip.shop.services.PurchaseServiceInterface;
+import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
+import org.unibl.etf.ip.shop.models.requests.PurchaseRequest;
+import org.unibl.etf.ip.shop.services.IPurchaseService;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import java.util.List;
 @RequestMapping("/purchases")
 public class PurchaseController {
 
-    private final PurchaseServiceInterface service;
+    private final IPurchaseService service;
 
-    public PurchaseController(PurchaseServiceInterface service) {
+    public PurchaseController(IPurchaseService service) {
         this.service = service;
     }
 
