@@ -31,6 +31,11 @@ public class UserAccountController {
         return userAccountService.findById(id);
     }
 
+    @GetMapping("/username/{username}")
+    public UserAccountDTO findByUsername(@PathVariable String username) throws NotFoundException {
+        return userAccountService.findByUsername(username);
+    }
+
     @GetMapping("/{id}/purchases")
     public List<PurchaseDTO> getAllPurchasesByUserId(@PathVariable Integer id) {
         return purchaseService.getAllPurchasesByUserId(id);

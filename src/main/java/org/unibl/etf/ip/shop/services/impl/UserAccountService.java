@@ -31,4 +31,9 @@ public class UserAccountService implements IUserAccountService {
     public UserAccountSingleDTO findById(Integer id) throws NotFoundException {
         return modelMapper.map(repository.findById(id).orElseThrow(NotFoundException::new), UserAccountSingleDTO.class);
     }
+
+    @Override
+    public UserAccountDTO findByUsername(String username) {
+        return modelMapper.map(repository.findByUsername(username).orElseThrow(NotFoundException::new), UserAccountDTO.class);
+    }
 }

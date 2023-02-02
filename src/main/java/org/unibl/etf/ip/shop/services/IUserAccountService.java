@@ -10,4 +10,5 @@ public interface IUserAccountService {
 
     List<UserAccountDTO> findAll();
     UserAccountSingleDTO findById(Integer id) throws NotFoundException;
+    UserAccountDTO findByUsername(String username);
 }
