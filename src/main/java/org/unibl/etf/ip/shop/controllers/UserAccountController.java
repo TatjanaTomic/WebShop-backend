@@ -11,7 +11,7 @@ import org.unibl.etf.ip.shop.services.IUserAccountService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user-accounts")
+@RequestMapping("/api/v1/user-accounts")
 @CrossOrigin(origins="http://localhost:4200/")
 public class UserAccountController {
 

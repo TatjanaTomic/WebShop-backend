@@ -10,7 +10,7 @@ import org.unibl.etf.ip.shop.repositories.AccountTypeRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/account-types")
+@RequestMapping("/api/v1/account-types")
 @CrossOrigin(origins="http://localhost:4200/")
 public class AccountTypeController {
 

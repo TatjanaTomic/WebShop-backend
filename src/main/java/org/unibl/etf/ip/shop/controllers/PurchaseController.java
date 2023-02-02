@@ -10,7 +10,7 @@ import org.unibl.etf.ip.shop.services.IPurchaseService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/purchases")
+@RequestMapping("/api/v1/purchases")
 @CrossOrigin(origins="http://localhost:4200/")
 public class PurchaseController {
 

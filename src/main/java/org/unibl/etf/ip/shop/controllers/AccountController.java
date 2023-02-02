@@ -10,7 +10,7 @@ import org.unibl.etf.ip.shop.repositories.AccountRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/api/v1/accounts")
 @CrossOrigin(origins="http://localhost:4200/")
 public class AccountController {
 

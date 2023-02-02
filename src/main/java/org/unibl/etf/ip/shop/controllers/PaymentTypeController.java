@@ -6,7 +6,7 @@ import org.unibl.etf.ip.shop.models.requests.PaymentTypeRequest;
 import org.unibl.etf.ip.shop.services.IPaymentTypeService;
 
 @RestController
-@RequestMapping("/payment-types")
+@RequestMapping("/api/v1/payment-types")
 @CrossOrigin(origins="http://localhost:4200/")
 public class PaymentTypeController extends CrudController<Integer, PaymentTypeRequest, PaymentTypeDTO> {
 
