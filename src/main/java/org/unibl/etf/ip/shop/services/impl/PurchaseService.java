@@ -7,7 +7,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
 import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
-import org.unibl.etf.ip.shop.models.requests.PurchaseRequest;
 import org.unibl.etf.ip.shop.models.entities.Purchase;
 import org.unibl.etf.ip.shop.repositories.PurchaseRepository;
 import org.unibl.etf.ip.shop.services.IPurchaseService;
@@ -46,7 +45,7 @@ public class PurchaseService implements IPurchaseService {
     }
 
     @Override
-    public PurchaseDTO insert(PurchaseRequest purchaseRequest) throws NotFoundException {
+    public PurchaseDTO insert(PurchaseDTO purchaseRequest) throws NotFoundException {
         Purchase purchase = modelMapper.map(purchaseRequest, Purchase.class);
         purchase.setId(null);
 
@@ -58,7 +57,7 @@ public class PurchaseService implements IPurchaseService {
     }
 
     @Override
-    public PurchaseDTO update(Integer id, PurchaseRequest purchaseRequest) throws NotFoundException {
+    public PurchaseDTO update(Integer id, PurchaseDTO purchaseRequest) throws NotFoundException {
         Purchase purchase = modelMapper.map(purchaseRequest, Purchase.class);
         purchase.setId(id);
 
