@@ -2,24 +2,26 @@ package org.unibl.etf.ip.shop.services.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.unibl.etf.ip.shop.exceptions.ConflictException;
+import org.unibl.etf.ip.shop.exceptions.NotFoundException;
+import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
 import org.unibl.etf.ip.shop.models.dtos.UserAccountDTO;
 import org.unibl.etf.ip.shop.models.entities.UserAccount;
 import org.unibl.etf.ip.shop.repositories.UserAccountRepository;
-import org.unibl.etf.ip.shop.services.CrudJpaService;
 import org.unibl.etf.ip.shop.services.IUserAccountService;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
+@Transactional
 public class UserAccountService extends CrudJpaService<UserAccount, Integer> implements IUserAccountService {
 
     private final UserAccountRepository repository;
+    private final ModelMapper modelMapper;
 
     public UserAccountService(UserAccountRepository userAccountRepository, ModelMapper modelMapper) {
         super(userAccountRepository, UserAccount.class, modelMapper);
         this.repository = userAccountRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class UserAccountService extends CrudJpaService<UserAccount, Integer> imp
     }
 
     @Override
-    public UserAccountDTO findByUsername(String username) {
-        return repository.getByUsername(username);
+    public UserAccountDTO findByUsername(String username) throws NotFoundException {
+        return modelMapper.map(repository.findByUsername(username).orElseThrow(NotFoundException::new), UserAccountDTO.class);
     }
 }

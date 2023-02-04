@@ -1,19 +1,12 @@
 package org.unibl.etf.ip.shop.services.impl;
 
-import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.unibl.etf.ip.shop.exceptions.ConflictException;
-import org.unibl.etf.ip.shop.exceptions.NotFoundException;
-import org.unibl.etf.ip.shop.models.dtos.PaymentTypeDTO;
 import org.unibl.etf.ip.shop.models.entities.PaymentType;
 import org.unibl.etf.ip.shop.repositories.PaymentTypeRepository;
-import org.unibl.etf.ip.shop.services.CrudJpaService;
 import org.unibl.etf.ip.shop.services.IPaymentTypeService;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional

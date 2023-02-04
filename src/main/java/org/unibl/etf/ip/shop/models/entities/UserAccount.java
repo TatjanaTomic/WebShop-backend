@@ -58,8 +58,8 @@ public class UserAccount implements BaseEntity<Integer> {
     @OneToMany(mappedBy = "userAccount")
     private List<Comment> comments;
 
-    @OneToMany(mappedBy = "userAccount")
-    private List<Message> messages;
+    //@OneToMany(mappedBy = "userAccount")
+    //private List<Message> messages;
 
     @OneToMany(mappedBy = "userAccount")
     private List<Offer> offers;

@@ -36,6 +36,10 @@ public class Product implements BaseEntity<Integer> {
     @Column(name = "contact", nullable = false, length = 45)
     private String contact;
 
+    @Basic
+    @Column(name = "address", nullable = false, length = 255)
+    private String address;
+
     @OneToMany(mappedBy = "product")
     private List<Image> images;
 
@@ -45,10 +49,6 @@ public class Product implements BaseEntity<Integer> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_category", referencedColumnName = "id", nullable = false)
     private Category category;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_location", referencedColumnName = "id")
-    private Location location;
 
     //@OneToMany(mappedBy = "product")
     //@JsonIgnore

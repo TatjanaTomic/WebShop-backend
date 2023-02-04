@@ -21,8 +21,12 @@ public class Message implements BaseEntity<Integer> {
     @Column(name = "is_read", nullable = false)
     private Boolean isRead;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
-    private UserAccount userAccount;
+    @Basic
+    @Column(name = "date_time", nullable = false)
+    private String dateTime;
+
+    @Basic
+    @Column(name = "id_user", nullable = false)
+    private Integer idUser;
 
 }
