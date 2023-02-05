@@ -29,4 +29,9 @@ public class Message implements BaseEntity<Integer> {
     @Column(name = "id_user", nullable = false)
     private Integer idUser;
 
+
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
+    //private UserAccount userAccount;
+
 }

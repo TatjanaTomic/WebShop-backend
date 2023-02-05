@@ -26,10 +26,9 @@ public class Offer implements BaseEntity<Integer> {
 
     @OneToMany(mappedBy = "offer")
     private List<Comment> comments;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
-    private UserAccount userAccount;
+    @Basic
+    @Column(name = "id_user", nullable = false)
+    private Integer idUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_product", referencedColumnName = "id", nullable = false)

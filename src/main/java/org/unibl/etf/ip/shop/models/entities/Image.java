@@ -17,6 +17,10 @@ public class Image implements BaseEntity<Integer> {
     @Column(name = "url", nullable = false, length = 500)
     private String url;
 
+/*    @Basic
+    @Column(name = "id_product", nullable = false)
+    private Integer idProduct;*/
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_product", referencedColumnName = "id", nullable = false)
     private Product product;

@@ -10,7 +10,7 @@ import org.unibl.etf.ip.shop.services.IPaymentTypeService;
 @CrossOrigin(origins="http://localhost:4200/")
 public class PaymentTypeController extends CrudController<Integer, PaymentType, PaymentTypeDTO> {
 
-    protected PaymentTypeController(IPaymentTypeService service) {
+    public PaymentTypeController(IPaymentTypeService service) {
         super(PaymentTypeDTO.class, service);
     }
 }

@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.unibl.etf.ip.shop.models.BaseEntity;
@@ -41,9 +42,11 @@ public class Product implements BaseEntity<Integer> {
     private String address;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<Image> images;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<Offer> offers;
 
     @ManyToOne(fetch = FetchType.LAZY)

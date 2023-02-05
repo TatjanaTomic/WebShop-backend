@@ -24,6 +24,10 @@ public class Category implements BaseEntity<Integer> {
     @Column(name = "is_deleted", nullable = false)
     private Boolean isDeleted;
 
+    @Basic
+    @Column(name = "id_parent_category", nullable = true)
+    private Integer idParentCategory;
+
     //@OneToMany(mappedBy = "category")
     //@JsonIgnore
     //private List<Attribute> attributes;

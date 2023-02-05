@@ -61,8 +61,8 @@ public class UserAccount implements BaseEntity<Integer> {
     //@OneToMany(mappedBy = "userAccount")
     //private List<Message> messages;
 
-    @OneToMany(mappedBy = "userAccount")
-    private List<Offer> offers;
+    //@OneToMany(mappedBy = "userAccount")
+    //private List<Offer> offers;
 
     @OneToMany(mappedBy = "userAccount")
     private List<Purchase> purchases;
