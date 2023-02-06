@@ -1,87 +1,39 @@
 package org.unibl.etf.ip.shop.mail;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.unibl.etf.ip.shop.models.entities.Mail;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Properties;
-import java.util.PropertyResourceBundle;
-import java.util.ResourceBundle;
 
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
-//@Service
+@Service
 public class MailService {
-	
-	private Properties props = new Properties();
 	
 	private static final String SENDER_NAME = "WebShopIP";
 	private static final String TITLE = "PIN";
-		
-	private static String senderMail = "tatjanatomic997@gmail.com";
-	private static String senderPass = "xegrvfpywecevxgd";
 
+	private JavaMailSender javaMailSender;
 
-	//@Autowired
-	//private JavaMailSender javaMailSender;
-
-	@Value("${spring.mail.username}") private String sender;
-	
-	private MailService() {
-		props.setProperty("spring.mail.host","smtp.gmail.com");
-		props.setProperty("spring.mail.port","465");
-		props.setProperty("spring.mail.username",senderMail);
-		props.setProperty("spring.mail.password",senderPass);
-		props.setProperty("spring.mail.properties.mail.smtp.auth", "true");
-		props.setProperty("spring.mail.properties.mail.smtp.starttls.enable", "true");
-
-//		props.setProperty("mail.smtp.socketFactory.port","465");
-//		props.setProperty("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-//		props.setProperty("mail.smtp.auth","true");
-//		props.setProperty("mail.smtp.starttls.enable","true");
-//		props.setProperty("mail.smtp.ssl.protocols","TLSv1.2");
+	public MailService(JavaMailSender javaMailSender) {
+		this.javaMailSender = javaMailSender;
 	}
-
-
-	// Method 1
-	// To send a simple email
-	public boolean sendMail(String receiver, String content)
+	public String sendSimpleMail(Mail mail)
 	{
-
-		// Try block to check for exceptions
 		try {
-
-			// Creating a simple mail message
 			SimpleMailMessage mailMessage
 					= new SimpleMailMessage();
 
-			// Setting up necessary details
-			mailMessage.setFrom(sender);
-			mailMessage.setTo(receiver);
-			mailMessage.setText(content);
+			mailMessage.setFrom(SENDER_NAME);
+			mailMessage.setTo(mail.getReceiver());
+			mailMessage.setText(mail.getContent());
 			mailMessage.setSubject(TITLE);
 
-			// Sending the mail
-			//javaMailSender.send(mailMessage);
-			return true;
+			javaMailSender.send(mailMessage);
+			return "Mail je poslan.";
 		}
-
-		// Catch block to handle the exceptions
 		catch (Exception e) {
-			return false;
+			return "Dogodila se greska prilikom slanja maila.";
 		}
 	}
-	
+
 }
