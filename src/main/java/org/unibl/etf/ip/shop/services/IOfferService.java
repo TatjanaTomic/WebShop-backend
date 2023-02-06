@@ -1,7 +1,6 @@
 package org.unibl.etf.ip.shop.services;
 
 import org.unibl.etf.ip.shop.models.dtos.OfferDTO;
-import org.unibl.etf.ip.shop.models.entities.Offer;
 
 import java.util.List;
 

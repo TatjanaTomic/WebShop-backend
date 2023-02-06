@@ -6,7 +6,7 @@ import org.unibl.etf.ip.shop.models.entities.Mail;
 
 @RestController
 @RequestMapping("/api/v1/email")
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="http://localhost:4200/")
 public class MailController {
 
     private MailService mailService;
