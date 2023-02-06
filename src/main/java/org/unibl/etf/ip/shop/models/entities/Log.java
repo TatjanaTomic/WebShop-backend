@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.unibl.etf.ip.shop.models.BaseEntity;
 
-import java.sql.Timestamp;
-
 @Data
 @Entity
 @Table(name = "log")
@@ -21,6 +19,15 @@ public class Log implements BaseEntity<Integer> {
 
     @Basic
     @Column(name = "date_time", nullable = false)
-    private Timestamp dateTime;
+    private String dateTime;
 
+    public Log() {
+
+    }
+
+    public Log(Integer id, String content, String dateTime) {
+        this.id = id;
+        this.content = content;
+        this.dateTime = dateTime;
+    }
 }

@@ -1,11 +1,15 @@
 package org.unibl.etf.ip.shop.controllers;
 
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
 import org.unibl.etf.ip.shop.services.CrudService;
+import org.unibl.etf.ip.shop.services.ILogService;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.io.Serializable;
 
@@ -15,6 +19,7 @@ public abstract class CrudController<ID extends Serializable, REQ, RESP> {
     private final Class<RESP> respClass;
     private final CrudService<ID> crudService;
 
+    @Autowired ILogService logService;
 
     protected CrudController(Class<RESP> respClass, CrudService<ID> crudService) {
         this.respClass = respClass;
@@ -34,6 +39,8 @@ public abstract class CrudController<ID extends Serializable, REQ, RESP> {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public RESP insert(@RequestBody REQ object) throws NotFoundException {
+        logService.log(new org.unibl.etf.ip.shop.models.entities.Log(null, "Kreiranje objekata klase " + respClass, getDateTime()));
+
         return crudService.insert(object, respClass);
     }
 
@@ -44,6 +51,14 @@ public abstract class CrudController<ID extends Serializable, REQ, RESP> {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable ID id) throws NotFoundException {
+        logService.log(new org.unibl.etf.ip.shop.models.entities.Log(null, "Brisanje objekata klase " + respClass, getDateTime()));
+
         crudService.delete(id);
+    }
+
+    private String getDateTime() {
+        Date now = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        return simpleDateFormat.format(now);
     }
 }
