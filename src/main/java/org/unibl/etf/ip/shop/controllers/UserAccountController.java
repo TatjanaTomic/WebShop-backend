@@ -29,8 +29,4 @@ public class UserAccountController extends CrudController<Integer, UserAccount, 
         return userAccountService.findByUsername(username);
     }
 
-    @GetMapping("/{id}/purchases")
-    public List<PurchaseDTO> getAllPurchasesByUserId(@PathVariable Integer id) {
-        return purchaseService.getAllPurchasesByUserId(id);
-    }
 }

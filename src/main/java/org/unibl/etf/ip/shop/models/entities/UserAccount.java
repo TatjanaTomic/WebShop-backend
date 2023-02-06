@@ -1,5 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.unibl.etf.ip.shop.models.BaseEntity;
@@ -56,6 +57,7 @@ public class UserAccount implements BaseEntity<Integer> {
     private Boolean isDeleted;
 
     @OneToMany(mappedBy = "userAccount")
+    @JsonIgnore
     private List<Comment> comments;
 
     //@OneToMany(mappedBy = "userAccount")
@@ -65,6 +67,7 @@ public class UserAccount implements BaseEntity<Integer> {
     //private List<Offer> offers;
 
     @OneToMany(mappedBy = "userAccount")
+    @JsonIgnore
     private List<Purchase> purchases;
 
 }

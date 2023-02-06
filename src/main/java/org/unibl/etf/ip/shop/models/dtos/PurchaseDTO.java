@@ -1,6 +1,7 @@
 package org.unibl.etf.ip.shop.models.dtos;
 
 import lombok.Data;
+import org.unibl.etf.ip.shop.models.entities.PaymentType;
 
 import java.sql.Timestamp;
 
@@ -8,18 +9,10 @@ import java.sql.Timestamp;
 public class PurchaseDTO {
 
     private Integer id;
-
-    private Timestamp dateTime;
-
+    private String dateTime;
     private String cardNumber;
-
-    //umjesto da cuvam citav objekat PaymentType, zelim samo naziv
-    private String paymentTypeName;
-
-    //Offer
-    private Integer offerId;
-
-    //UserAccount
-    private String userAccountUsername;
+    private PaymentTypeDTO paymentType;
+    private OfferDTO offer;
+    private UserAccountDTO userAccount;
 
 }

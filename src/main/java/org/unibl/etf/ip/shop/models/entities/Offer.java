@@ -25,6 +25,7 @@ public class Offer implements BaseEntity<Integer> {
     private Boolean isDeleted;
 
     @OneToMany(mappedBy = "offer")
+    @JsonIgnore
     private List<Comment> comments;
     @Basic
     @Column(name = "id_user", nullable = false)

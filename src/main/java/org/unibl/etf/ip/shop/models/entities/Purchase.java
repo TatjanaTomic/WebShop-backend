@@ -17,7 +17,7 @@ public class Purchase implements BaseEntity<Integer> {
 
     @Basic
     @Column(name = "date_time", nullable = false)
-    private Timestamp dateTime;
+    private String dateTime;
 
     @Basic
     @Column(name = "card_number", length = 45)
