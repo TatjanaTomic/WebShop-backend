@@ -12,12 +12,12 @@ import java.io.Serializable;
 public class AttributePK implements Serializable {
     @Column(name = "id", nullable = false)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "id_category", nullable = false)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCategory;
 
 }
