@@ -39,7 +39,7 @@ public abstract class CrudController<ID extends Serializable, REQ, RESP> {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public RESP insert(@RequestBody REQ object) throws NotFoundException {
-        logService.log(new org.unibl.etf.ip.shop.models.entities.Log(null, "Kreiranje objekata klase " + respClass, getDateTime()));
+        logService.log(new org.unibl.etf.ip.shop.models.entities.Log(null, "Kreiranje objekta klase " + respClass, getDateTime()));
 
         return crudService.insert(object, respClass);
     }
@@ -51,7 +51,7 @@ public abstract class CrudController<ID extends Serializable, REQ, RESP> {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable ID id) throws NotFoundException {
-        logService.log(new org.unibl.etf.ip.shop.models.entities.Log(null, "Brisanje objekata klase " + respClass, getDateTime()));
+        logService.log(new org.unibl.etf.ip.shop.models.entities.Log(null, "Brisanje objekta klase " + respClass, getDateTime()));
 
         crudService.delete(id);
     }
