@@ -17,4 +17,9 @@ public class ValueController {
     public Value getValueOfAttributeForProduct(@PathVariable Integer idProduct, @PathVariable Integer idAttribute) {
         return service.getByIdProductAndIdAttribute(idProduct, idAttribute);
     }
+
+    @PostMapping
+    public Value add(@RequestBody Value value) {
+        return service.add(value);
+    }
 }

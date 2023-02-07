@@ -20,4 +20,9 @@ public class ValueService implements IValueService {
     public Value getByIdProductAndIdAttribute(Integer idProduct, Integer idAttribute) {
         return repository.findByIdProductAndIdAttribute(idProduct, idAttribute);
     }
+
+    @Override
+    public Value add(Value value) {
+        return repository.saveAndFlush(value);
+    }
 }
