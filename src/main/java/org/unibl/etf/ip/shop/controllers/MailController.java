@@ -1,7 +1,7 @@
 package org.unibl.etf.ip.shop.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import org.unibl.etf.ip.shop.mail.MailService;
+import org.unibl.etf.ip.shop.services.impl.MailService;
 import org.unibl.etf.ip.shop.models.entities.Mail;
 
 @RestController

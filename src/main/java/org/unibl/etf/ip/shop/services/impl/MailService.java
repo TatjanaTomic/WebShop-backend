@@ -1,13 +1,14 @@
-package org.unibl.etf.ip.shop.mail;
+package org.unibl.etf.ip.shop.services.impl;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.unibl.etf.ip.shop.models.entities.Mail;
+import org.unibl.etf.ip.shop.services.IMailService;
 
 
 @Service
-public class MailService {
+public class MailService implements IMailService {
 	
 	private static final String SENDER_NAME = "WebShopIP";
 	private static final String TITLE = "PIN";
