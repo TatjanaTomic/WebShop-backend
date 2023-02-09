@@ -1,7 +1,6 @@
 package org.unibl.etf.ip.shop.services.impl;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.unibl.etf.ip.shop.models.entities.AttributeValue;
@@ -14,8 +13,8 @@ import java.util.List;
 @Service
 @Transactional
 public class ProductService extends CrudJpaService<Product, Integer> implements IProductService {
-    private ProductRepository repository;
-    private ModelMapper modelMapper;
+    private final ProductRepository repository;
+    private final ModelMapper modelMapper;
 
     public ProductService(ProductRepository repository, ModelMapper modelMapper) {
         super(repository, Product.class, modelMapper);

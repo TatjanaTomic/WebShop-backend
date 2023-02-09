@@ -11,6 +11,7 @@ import org.unibl.etf.ip.shop.services.ILogService;
 public class LogService implements ILogService {
 
     private final LogRepository logRepository;
+
     public LogService(LogRepository repository) {
         this.logRepository = repository;
     }

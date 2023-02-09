@@ -9,7 +9,7 @@ import org.unibl.etf.ip.shop.services.ICategoryService;
 
 @RestController
 @RequestMapping("/api/v1/categories")
-@CrossOrigin(origins="http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class CategoryController extends CrudController<Integer, Category, CategoryDTO> {
 
     public CategoryController(ICategoryService service) {

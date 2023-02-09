@@ -9,10 +9,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/offers")
-@CrossOrigin(origins="http://localhost:4200/")
-public class OfferController extends CrudController<Integer, Offer, OfferDTO>{
+@CrossOrigin(origins = "http://localhost:4200/")
+public class OfferController extends CrudController<Integer, Offer, OfferDTO> {
 
-    private IOfferService service;
+    private final IOfferService service;
+
     public OfferController(IOfferService service) {
         super(OfferDTO.class, service);
         this.service = service;

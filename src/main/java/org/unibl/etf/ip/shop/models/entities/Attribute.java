@@ -16,7 +16,7 @@ public class Attribute {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_category", nullable = false, insertable=false, updatable=false)
+    @Column(name = "id_category", nullable = false, insertable = false, updatable = false)
     private Integer idCategory;
 
     @Basic

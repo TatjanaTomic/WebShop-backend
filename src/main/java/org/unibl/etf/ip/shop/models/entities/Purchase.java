@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.unibl.etf.ip.shop.models.BaseEntity;
 
-import java.sql.Timestamp;
-
 @Data
 @Entity
 @Table(name = "purchase")

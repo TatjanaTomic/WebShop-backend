@@ -22,7 +22,7 @@ public class HttpException extends RuntimeException {
         this(HttpStatus.INTERNAL_SERVER_ERROR, data);
     }
 
-    public HttpException(HttpStatus status,Object data) {
+    public HttpException(HttpStatus status, Object data) {
         this.status = status;
         this.data = data;
     }

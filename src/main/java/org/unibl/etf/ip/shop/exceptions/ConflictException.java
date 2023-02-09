@@ -3,7 +3,7 @@ package org.unibl.etf.ip.shop.exceptions;
 import org.springframework.http.HttpStatus;
 
 // Statusni kod 409
-public class ConflictException extends HttpException{
+public class ConflictException extends HttpException {
 
     public ConflictException() {
         super(HttpStatus.CONFLICT, null);

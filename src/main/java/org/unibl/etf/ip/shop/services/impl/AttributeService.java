@@ -13,8 +13,8 @@ import java.util.List;
 @Transactional
 public class AttributeService implements IAttributeService {
 
-    private AttributeRepository repository;
-    private ModelMapper modelMapper;
+    private final AttributeRepository repository;
+    private final ModelMapper modelMapper;
 
     public AttributeService(AttributeRepository repository, ModelMapper modelMapper) {
         this.repository = repository;

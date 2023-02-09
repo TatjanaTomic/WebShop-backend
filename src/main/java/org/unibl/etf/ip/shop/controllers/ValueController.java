@@ -6,9 +6,10 @@ import org.unibl.etf.ip.shop.services.IValueService;
 
 @RestController
 @RequestMapping("/api/v1/values")
-@CrossOrigin(origins="http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ValueController {
-    private IValueService service;
+    private final IValueService service;
+
     public ValueController(IValueService service) {
         this.service = service;
     }

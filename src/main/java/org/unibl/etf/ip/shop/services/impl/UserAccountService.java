@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.unibl.etf.ip.shop.exceptions.ConflictException;
 import org.unibl.etf.ip.shop.exceptions.NotFoundException;
-import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
 import org.unibl.etf.ip.shop.models.dtos.UserAccountDTO;
 import org.unibl.etf.ip.shop.models.entities.UserAccount;
 import org.unibl.etf.ip.shop.repositories.UserAccountRepository;
@@ -26,14 +25,14 @@ public class UserAccountService extends CrudJpaService<UserAccount, Integer> imp
 
     @Override
     public <T, U> T insert(U object, Class<T> resultDtoClass) {
-        if(repository.existsByUsername(getModelMapper().map(object, getEntityClass()).getUsername()))
+        if (repository.existsByUsername(getModelMapper().map(object, getEntityClass()).getUsername()))
             throw new ConflictException();
         return super.insert(object, resultDtoClass);
     }
 
     @Override
     public <T, U> T update(Integer integer, U object, Class<T> resultDtoClass) {
-        if(repository.existsByUsernameAndIdNot(getModelMapper().map(object, getEntityClass()).getUsername(), integer))
+        if (repository.existsByUsernameAndIdNot(getModelMapper().map(object, getEntityClass()).getUsername(), integer))
             throw new ConflictException();
         return super.update(integer, object, resultDtoClass);
     }

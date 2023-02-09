@@ -12,7 +12,7 @@ import org.unibl.etf.ip.shop.services.IPaymentTypeService;
 @Transactional
 public class PaymentTypeService extends CrudJpaService<PaymentType, Integer> implements IPaymentTypeService {
 
-    private PaymentTypeRepository repository;
+    private final PaymentTypeRepository repository;
 
     public PaymentTypeService(PaymentTypeRepository repository, ModelMapper modelMapper) {
         super(repository, PaymentType.class, modelMapper);
@@ -21,14 +21,14 @@ public class PaymentTypeService extends CrudJpaService<PaymentType, Integer> imp
 
     @Override
     public <T, U> T insert(U object, Class<T> resultDtoClass) {
-        if(repository.existsByName(getModelMapper().map(object, getEntityClass()).getName()))
+        if (repository.existsByName(getModelMapper().map(object, getEntityClass()).getName()))
             throw new ConflictException();
         return super.insert(object, resultDtoClass);
     }
 
     @Override
     public <T, U> T update(Integer integer, U object, Class<T> resultDtoClass) {
-        if(repository.existsByNameAndIdNot(getModelMapper().map(object, getEntityClass()).getName(), integer))
+        if (repository.existsByNameAndIdNot(getModelMapper().map(object, getEntityClass()).getName(), integer))
             throw new ConflictException();
         return super.update(integer, object, resultDtoClass);
     }

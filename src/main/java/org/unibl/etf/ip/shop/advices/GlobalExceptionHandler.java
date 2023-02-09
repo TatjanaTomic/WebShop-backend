@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
 
         Log log = getLog(handlerMethod);
         log.error(e);
-        if(e.getStatus() == null) {
+        if (e.getStatus() == null) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(e.getData(), e.getStatus());
@@ -60,4 +60,4 @@ public class GlobalExceptionHandler {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         return simpleDateFormat.format(now);
     }
- }
+}

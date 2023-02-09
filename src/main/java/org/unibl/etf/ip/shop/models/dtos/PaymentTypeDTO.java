@@ -8,5 +8,4 @@ public class PaymentTypeDTO {
     private Integer id;
     private String name;
 
-
 }

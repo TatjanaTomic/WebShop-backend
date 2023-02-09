@@ -10,8 +10,8 @@ import org.unibl.etf.ip.shop.services.ICategoryService;
 @Service
 @Transactional
 public class CategoryService extends CrudJpaService<Category, Integer> implements ICategoryService {
-    private CategoryRepository repository;
-    private ModelMapper modelMapper;
+    private final CategoryRepository repository;
+    private final ModelMapper modelMapper;
 
     public CategoryService(CategoryRepository repository, ModelMapper mapper) {
         super(repository, Category.class, mapper);

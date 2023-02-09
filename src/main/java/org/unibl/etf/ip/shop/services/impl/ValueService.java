@@ -10,7 +10,7 @@ import org.unibl.etf.ip.shop.services.IValueService;
 @Transactional
 public class ValueService implements IValueService {
 
-    private ValueRepository repository;
+    private final ValueRepository repository;
 
     public ValueService(ValueRepository repository) {
         this.repository = repository;

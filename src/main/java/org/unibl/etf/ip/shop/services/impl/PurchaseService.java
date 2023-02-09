@@ -3,7 +3,6 @@ package org.unibl.etf.ip.shop.services.impl;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.unibl.etf.ip.shop.models.dtos.OfferDTO;
 import org.unibl.etf.ip.shop.models.dtos.PurchaseDTO;
 import org.unibl.etf.ip.shop.models.entities.Purchase;
 import org.unibl.etf.ip.shop.repositories.PurchaseRepository;
@@ -13,7 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional //sve metode u ovoj klasi su transakcije, ako se prekine izvrsavanje metode, izmjene ce biti rollback-ovane
+@Transactional
+//sve metode u ovoj klasi su transakcije, ako se prekine izvrsavanje metode, izmjene ce biti rollback-ovane
 public class PurchaseService extends CrudJpaService<Purchase, Integer> implements IPurchaseService {
 
     private final ModelMapper modelMapper;

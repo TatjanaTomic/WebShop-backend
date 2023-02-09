@@ -16,4 +16,5 @@ public class UserAccountDTO {
     private String pin;
     private Boolean isActivated;
     private Boolean isDeleted;
+
 }

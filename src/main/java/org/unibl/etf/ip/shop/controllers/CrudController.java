@@ -8,10 +8,10 @@ import org.unibl.etf.ip.shop.exceptions.NotFoundException;
 import org.unibl.etf.ip.shop.services.CrudService;
 import org.unibl.etf.ip.shop.services.ILogService;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.io.Serializable;
 
 @Getter
 public abstract class CrudController<ID extends Serializable, REQ, RESP> {
@@ -19,7 +19,8 @@ public abstract class CrudController<ID extends Serializable, REQ, RESP> {
     private final Class<RESP> respClass;
     private final CrudService<ID> crudService;
 
-    @Autowired ILogService logService;
+    @Autowired
+    ILogService logService;
 
     protected CrudController(Class<RESP> respClass, CrudService<ID> crudService) {
         this.respClass = respClass;
@@ -28,7 +29,7 @@ public abstract class CrudController<ID extends Serializable, REQ, RESP> {
 
     @GetMapping
     List<RESP> findAll() {
-    return crudService.findAll(respClass);
+        return crudService.findAll(respClass);
     }
 
     @GetMapping("/{id}")

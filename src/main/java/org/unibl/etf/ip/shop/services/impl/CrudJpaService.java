@@ -43,7 +43,7 @@ public class CrudJpaService<E extends BaseEntity<ID>, ID extends Serializable> i
 
     @Override
     public <T> T findById(ID id, Class<T> resultDtoClass) throws NotFoundException {
-        return  modelMapper.map(findEntityById(id), resultDtoClass);
+        return modelMapper.map(findEntityById(id), resultDtoClass);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class CrudJpaService<E extends BaseEntity<ID>, ID extends Serializable> i
 
     @Override
     public <T, U> T update(ID id, U object, Class<T> resultDtoClass) {
-        if(!repository.existsById(id)) {
+        if (!repository.existsById(id)) {
             throw new NotFoundException();
         }
 
@@ -72,11 +72,13 @@ public class CrudJpaService<E extends BaseEntity<ID>, ID extends Serializable> i
 
     @Override
     public void delete(ID id) throws NotFoundException {
-        if(!repository.existsById(id)) {
+        if (!repository.existsById(id)) {
             throw new NotFoundException();
         }
         repository.deleteById(id);
     }
 
-    public E findEntityById(ID id) { return repository.findById(id).orElseThrow(NotFoundException::new); }
+    public E findEntityById(ID id) {
+        return repository.findById(id).orElseThrow(NotFoundException::new);
+    }
 }

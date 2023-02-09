@@ -9,32 +9,30 @@ import org.unibl.etf.ip.shop.services.IMailService;
 
 @Service
 public class MailService implements IMailService {
-	
-	private static final String SENDER_NAME = "WebShopIP";
-	private static final String TITLE = "PIN";
 
-	private JavaMailSender javaMailSender;
+    private static final String SENDER_NAME = "WebShopIP";
+    private static final String TITLE = "PIN";
 
-	public MailService(JavaMailSender javaMailSender) {
-		this.javaMailSender = javaMailSender;
-	}
-	public String sendSimpleMail(Mail mail)
-	{
-		try {
-			SimpleMailMessage mailMessage
-					= new SimpleMailMessage();
+    private final JavaMailSender javaMailSender;
 
-			mailMessage.setFrom(SENDER_NAME);
-			mailMessage.setTo(mail.getReceiver());
-			mailMessage.setText(mail.getContent());
-			mailMessage.setSubject(TITLE);
+    public MailService(JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
+    }
 
-			javaMailSender.send(mailMessage);
-			return "Mail je poslan.";
-		}
-		catch (Exception e) {
-			return "Dogodila se greska prilikom slanja maila.";
-		}
-	}
+    public String sendSimpleMail(Mail mail) {
+        try {
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+
+            mailMessage.setFrom(SENDER_NAME);
+            mailMessage.setTo(mail.getReceiver());
+            mailMessage.setText(mail.getContent());
+            mailMessage.setSubject(TITLE);
+
+            javaMailSender.send(mailMessage);
+            return "Mail je poslan.";
+        } catch (Exception e) {
+            return "Dogodila se greska prilikom slanja maila.";
+        }
+    }
 
 }

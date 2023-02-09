@@ -8,10 +8,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/attributes")
-@CrossOrigin(origins="http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class AttributeController {
 
     IAttributeService service;
+
     public AttributeController(IAttributeService service) {
         this.service = service;
     }

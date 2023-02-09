@@ -9,7 +9,7 @@ public class LoggingUtil {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(e);
         stringBuilder.append(System.lineSeparator());
-        for(StackTraceElement element : e.getStackTrace()) {
+        for (StackTraceElement element : e.getStackTrace()) {
             stringBuilder.append(element);
             stringBuilder.append(System.lineSeparator());
         }

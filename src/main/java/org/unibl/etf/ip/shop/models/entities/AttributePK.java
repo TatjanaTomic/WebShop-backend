@@ -1,8 +1,6 @@
 package org.unibl.etf.ip.shop.models.entities;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -12,7 +10,7 @@ import java.io.Serializable;
 public class AttributePK implements Serializable {
     @Column(name = "id", nullable = false)
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) - u PK klasi se ne smije koristiti ova anotacija!
     private Integer id;
 
     @Column(name = "id_category", nullable = false)

@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 public class ProductDTO {
+
     private Integer id;
     private String name;
     private String description;
@@ -16,4 +17,5 @@ public class ProductDTO {
     private CategoryDTO category;
     private String address;
     private List<ImageDTO> images;
+
 }

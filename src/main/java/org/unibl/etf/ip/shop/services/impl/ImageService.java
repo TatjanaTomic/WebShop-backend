@@ -7,13 +7,12 @@ import org.unibl.etf.ip.shop.models.entities.Image;
 import org.unibl.etf.ip.shop.repositories.ImageRepository;
 import org.unibl.etf.ip.shop.services.IImageService;
 
-import java.util.List;
-
 @Service
 @Transactional
 public class ImageService extends CrudJpaService<Image, Integer> implements IImageService {
 
-    private ImageRepository repository;
+    private final ImageRepository repository;
+
     public ImageService(ImageRepository repository, ModelMapper mapper) {
         super(repository, Image.class, mapper);
         this.repository = repository;

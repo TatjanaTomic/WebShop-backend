@@ -1,9 +1,6 @@
 package org.unibl.etf.ip.shop.models.dtos;
 
 import lombok.Data;
-import org.unibl.etf.ip.shop.models.entities.PaymentType;
-
-import java.sql.Timestamp;
 
 @Data
 public class PurchaseDTO {
